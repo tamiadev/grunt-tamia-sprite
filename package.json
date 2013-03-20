@@ -1,0 +1,41 @@
+{
+  "name": "grunt-squirrelsprite",
+  "description": "Sprite generator for Squirrel.styl.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/sapegin/grunt-squirrelsprite",
+  "author": {
+    "name": "Artem Sapegin",
+    "url": "http://sapegin.me/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sapegin/grunt-squirrelsprite.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sapegin/grunt-squirrelsprite/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/sapegin/grunt-squirrelsprite/blob/master/License.md"
+    }
+  ],
+  "main": "tasks/squirrelsprite.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "dependencies": {
+    "json2css": "~1.2.5",
+    "spritesmith": "~0.3.7"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "grunt-contrib-clean": "~0.4.0"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "keywords": []
+}
