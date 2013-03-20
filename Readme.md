@@ -37,10 +37,6 @@ Resulting Stylus file location.
 
 Layout algorithm (top-down, left-right, diagonal, alt-diagonal).
 
-#### [algorithm] `String` (default: `'top-down'`)
-
-Layout algorithm (top-down, left-right, diagonal, alt-diagonal).
-
 #### [engine] `String` (default: `'auto'`)
 
 Generation engine (auto, gm, canvas).
