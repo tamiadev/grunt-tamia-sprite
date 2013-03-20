@@ -1,6 +1,6 @@
 # Sprite generator for Squirrel.styl
 
-Generates sprite image from PNG files and a list of Stylus variables to use in [Squirrel.styl](https://github.com/sapegin/squirrelstrap/tree/master/templates/stylusdir/root/styles/squirrel). Uses [spritesmith](https://github.com/Ensighten/spritesmith). Inspired by [grunt-spritesmith](https://github.com/Ensighten/grunt-spritesmith).
+Generates [spritesheet](http://en.wikipedia.org/wiki/Sprite_%28computer_graphics%29#Sprites_by_CSS) from PNG files and a list of Stylus variables with coordinates to use in [Squirrel.styl](https://github.com/sapegin/squirrelstrap/tree/master/templates/stylusdir/root/styles/squirrel). Uses [spritesmith](https://github.com/Ensighten/spritesmith). Inspired by [grunt-spritesmith](https://github.com/Ensighten/grunt-spritesmith).
 
 ## Installation
 
