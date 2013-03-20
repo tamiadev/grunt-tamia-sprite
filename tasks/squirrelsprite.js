@@ -1,7 +1,7 @@
 /**
  * Sprite generator for Squirrel.styl
  *
- * @requires GraphicsMagick
+ * @requires GraphicsMagick or Cairo
  * @author Artem Sapegin (http://sapegin.me)
  */
 

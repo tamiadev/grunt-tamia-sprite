@@ -25,7 +25,6 @@
     "node": ">= 0.8.0"
   },
   "dependencies": {
-    "json2css": "~1.2.5",
     "spritesmith": "~0.3.7"
   },
   "devDependencies": {
