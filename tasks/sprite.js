@@ -81,10 +81,18 @@ module.exports = function(grunt) {
 
 			if (!options.skipStyl) {
 				// Generate Stylus variables
+				var maxFingerprint = 0;
 				var lines = _.map(result.coordinates, function(coords, filename) {
+					var fingerprint = fs.statSync(filename).mtime.getTime();
+					if (fingerprint > maxFingerprint) {
+						maxFingerprint = fingerprint;
+					}
 					var name = path.basename(filename, '.png');
 					return ['sprite_' + name, '=', -coords.x + 'px', -coords.y + 'px', coords.width + 'px', coords.height + 'px'].join(' ');
 				});
+
+				// Fingerprint: timestamp of the newest file
+				lines.unshift('sprite-image = "../build/_sprite.png?' + maxFingerprint + '"');
 
 				// Save variables
 				grunt.file.write(options.destStyl, lines.join('\n'));
