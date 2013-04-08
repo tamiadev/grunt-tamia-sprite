@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 				jshintrc: '.jshintrc'
 			},
 			files: [
-				'tasks/squirrelsprite.js',
+				'tasks/sprite.js',
 				'Gruntfile.js'
 			]
 		},

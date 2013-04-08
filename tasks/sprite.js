@@ -1,5 +1,5 @@
 /**
- * Sprite generator for Squirrel.styl
+ * Sprite generator for Tâmia
  *
  * @requires GraphicsMagick or Cairo
  * @author Artem Sapegin (http://sapegin.me)
@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 	var _ = grunt.util._;
 	var async = grunt.util.async;
 
-	grunt.registerMultiTask('sprite', 'Sprite generator for Squirrel.styl', function() {
+	grunt.registerMultiTask('sprite', 'Sprite generator for Tâmia', function() {
 		this.requiresConfig([ this.name, this.target, 'src' ].join('.'));
 		this.requiresConfig([ this.name, this.target, 'dest' ].join('.'));
 

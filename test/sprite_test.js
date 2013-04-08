@@ -1,7 +1,7 @@
 var fs = require('fs'),
 	grunt = require('grunt');
 
-exports.squirrelsprite = {
+exports.sprite = {
 	normal: function(test) {
 		'use strict';
 

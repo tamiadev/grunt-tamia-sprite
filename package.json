@@ -1,31 +1,31 @@
 {
-  "name": "grunt-squirrelsprite",
-  "description": "Sprite generator for Squirrel.styl.",
+  "name": "grunt-tamia-sprite",
+  "description": "Sprite generator for Tâmia.",
   "version": "0.0.1",
-  "homepage": "https://github.com/sapegin/grunt-squirrelsprite",
+  "homepage": "https://github.com/sapegin/grunt-tamia-sprite",
   "author": {
     "name": "Artem Sapegin",
     "url": "http://sapegin.me/"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/sapegin/grunt-squirrelsprite.git"
+    "url": "git://github.com/sapegin/grunt-tamia-sprite.git"
   },
   "bugs": {
-    "url": "https://github.com/sapegin/grunt-squirrelsprite/issues"
+    "url": "https://github.com/sapegin/grunt-tamia-sprite/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/sapegin/grunt-squirrelsprite/blob/master/License.md"
+      "url": "https://github.com/sapegin/grunt-tamia-sprite/blob/master/License.md"
     }
   ],
-  "main": "tasks/squirrelsprite.js",
+  "main": "tasks/tamia-sprite.js",
   "engines": {
     "node": ">= 0.8.0"
   },
   "dependencies": {
-    "spritesmith": "~0.3.7"
+    "spritesmith": "~0.3.8"
   },
   "devDependencies": {
     "grunt": "~0.4.0",

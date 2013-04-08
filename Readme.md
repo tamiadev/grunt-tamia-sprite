@@ -1,19 +1,19 @@
-# Sprite generator for Squirrel.styl
+# Sprite generator for [Tâmia](https://github.com/sapegin/tamia)
 
-Generates [spritesheet](http://en.wikipedia.org/wiki/Sprite_%28computer_graphics%29#Sprites_by_CSS) from PNG files and a list of Stylus variables with coordinates to use in [Squirrel.styl](https://github.com/sapegin/squirrelstrap/tree/master/templates/stylusdir/root/styles/squirrel). Uses [spritesmith](https://github.com/Ensighten/spritesmith). Inspired by [grunt-spritesmith](https://github.com/Ensighten/grunt-spritesmith).
+Generates [spritesheet](http://en.wikipedia.org/wiki/Sprite_%28computer_graphics%29#Sprites_by_CSS) from PNG files and a list of Stylus variables with coordinates to use in [Tâmia](https://github.com/sapegin/tamia). Uses [spritesmith](https://github.com/Ensighten/spritesmith). Inspired by [grunt-spritesmith](https://github.com/Ensighten/grunt-spritesmith).
 
 ## Installation
 
 This plugin requires Grunt 0.4.
 
-Install [GraphicsMagick](http://www.graphicsmagick.org/) (`brew install graphicsmagick` if you're on a Mac) *or* [Cairo](http://cairographics.org/). Then install grunt-squirrelsprite:
+Install [GraphicsMagick](http://www.graphicsmagick.org/) (`brew install graphicsmagick` if you're on a Mac) *or* [Cairo](http://cairographics.org/). Then install grunt-tamia-sprite:
 
-`npm install grunt-squirrelsprite --save-dev`
+`npm install --save-dev grunt-tamia-sprite`
 
 Add to your `Gruntfile.js`:
 
 ```javascript
-grunt.loadNpmTasks('grunt-squirrelsprite');
+grunt.loadNpmTasks('grunt-tamia-sprite');
 ```
 
 Then add section named `sprite` inside `grunt.initConfig()`. See next section for details.
@@ -54,14 +54,14 @@ module.exports = function(grunt) {
 			}
 		}
 	});
-	grunt.loadNpmTasks('grunt-squirrelsprite');
+	grunt.loadNpmTasks('grunt-tamia-sprite');
 	grunt.registerTask('default', ['sprite']);
 };
 ```
 
 ## Release History
 
-### 2013-03-20 v0.0.1
+### 2013-04-08 v0.0.1
 
 * Initial release.
 
