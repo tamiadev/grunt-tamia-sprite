@@ -38,5 +38,6 @@ module.exports = function(grunt) {
 	grunt.loadTasks('tasks');
 
 	grunt.registerTask('default', ['jshint', 'clean', 'sprite', 'nodeunit', 'clean']);
+	grunt.registerTask('build', ['clean']);
 
 };
