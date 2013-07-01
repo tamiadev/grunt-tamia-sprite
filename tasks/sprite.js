@@ -15,15 +15,19 @@ module.exports = function(grunt) {
 	var _ = grunt.util._;
 	var async = grunt.util.async;
 
+	grunt.template.addDelimiters('tamia-sprite', '{%', '%}');
+
 	grunt.registerMultiTask('sprite', 'Sprite generator for Tâmia', function() {
 		this.requiresConfig([ this.name, this.target, 'src' ].join('.'));
 		this.requiresConfig([ this.name, this.target, 'dest' ].join('.'));
 
 		var allDone = this.async();
 		var params = _.defaults(this.data, {
+			target: this.target,
 			engine: 'auto',
 			algorithm: 'top-down',
-			destStyl: this.data.dest.replace(/\.png$/, '.styl')
+			destStyl: this.data.dest.replace(/\.png$/, '.styl'),
+			template: '{%=target%}_{%=name%} = {%=x%}px {%=y%}px {%=width%}px {%=height%}px'
 		});
 
 		var files = this.filesSrc;
@@ -81,18 +85,17 @@ module.exports = function(grunt) {
 
 			if (!options.skipStyl) {
 				// Generate Stylus variables
-				var maxFingerprint = 0;
 				var lines = _.map(result.coordinates, function(coords, filename) {
-					var fingerprint = fs.statSync(filename).mtime.getTime();
-					if (fingerprint > maxFingerprint) {
-						maxFingerprint = fingerprint;
-					}
 					var name = path.basename(filename, '.png');
-					return ['sprite_' + name, '=', -coords.x + 'px', -coords.y + 'px', coords.width + 'px', coords.height + 'px'].join(' ');
+					return grunt.template.process(options.template, {delimiters: 'tamia-sprite', data: {
+						target: options.target,
+						name: name,
+						x: -coords.x,
+						y: -coords.y,
+						width: coords.width,
+						height: coords.height
+					}});
 				});
-
-				// Fingerprint: timestamp of the newest file
-				lines.unshift('sprite-image = "../build/_sprite.png?' + maxFingerprint + '"');
 
 				// Save variables
 				grunt.file.write(options.destStyl, lines.join('\n'));

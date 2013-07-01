@@ -33,6 +33,10 @@ Resulting sprite image location.
 
 Resulting Stylus file location.
 
+#### [template] `String` (default: `'{%=target%}_{%=name%} = {%=x%}px {%=y%}px {%=width%}px {%=height%}px'`)
+
+Template for generating every string in a Stylus file.
+
 #### [algorithm] `String` (default: `'top-down'`)
 
 Layout algorithm (top-down, left-right, diagonal, alt-diagonal).
