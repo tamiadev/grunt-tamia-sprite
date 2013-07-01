@@ -65,6 +65,10 @@ module.exports = function(grunt) {
 
 ## Release History
 
+### 2013-07-02 v0.0.2
+
+* `template` option.
+
 ### 2013-04-08 v0.0.1
 
 * Initial release.
