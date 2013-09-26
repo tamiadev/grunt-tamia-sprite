@@ -69,6 +69,11 @@ module.exports = function(grunt) {
 
 ## Release History
 
+### 2013-09-26 v0.0.3
+
+* `padding` option.
+* `binary-tree` algorithm.
+
 ### 2013-07-02 v0.0.2
 
 * `template` option.
