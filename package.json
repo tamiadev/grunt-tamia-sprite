@@ -1,7 +1,7 @@
 {
   "name": "grunt-tamia-sprite",
   "description": "Sprite generator for Tâmia.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/sapegin/grunt-tamia-sprite",
   "author": {
     "name": "Artem Sapegin",
