@@ -37,9 +37,13 @@ Resulting Stylus file location.
 
 Template for generating every string in a Stylus file.
 
-#### [algorithm] `String` (default: `'top-down'`)
+#### [algorithm] `String` (default: `'binary-tree'`)
 
-Layout algorithm (top-down, left-right, diagonal, alt-diagonal).
+Layout algorithm (top-down, left-right, diagonal, alt-diagonal, ).
+
+#### [padding] `String` (default: `3`)
+
+Padding between images.
 
 #### [engine] `String` (default: `'auto'`)
 

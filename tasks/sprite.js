@@ -25,7 +25,8 @@ module.exports = function(grunt) {
 		var params = _.defaults(this.data, {
 			target: this.target,
 			engine: 'auto',
-			algorithm: 'top-down',
+			algorithm: 'binary-tree',
+			padding: 3,
 			destStyl: this.data.dest.replace(/\.png$/, '.styl'),
 			template: '{%=target%}_{%=name%} = {%=x%}px {%=y%}px {%=width%}px {%=height%}px'
 		});
@@ -68,6 +69,7 @@ module.exports = function(grunt) {
 			src: options.src,
 			engine: options.engine,
 			algorithm: options.algorithm,
+			padding: options.padding,
 			exportOpts: {
 				format: 'png'
 			}
