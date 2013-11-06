@@ -21,31 +21,45 @@ Then add section named `sprite` inside `grunt.initConfig()`. See next section fo
 
 ### Parameters
 
-#### src `String|Array`
+#### src
+
+Type: `String|Array`.
 
 Images list (PNG only). String or array. Wildcards are supported.
 
-#### dest `String`
+#### dest
+
+Type: `String`.
 
 Resulting sprite image location.
 
-#### [destStyl] `String` (default: same as `dest` but with .styl extension)
+#### destStyl
+
+Type: `String`, default: same as `dest` but with .styl extension.
 
 Resulting Stylus file location.
 
-#### [template] `String` (default: `'{%=target%}_{%=name%} = {%=x%}px {%=y%}px {%=width%}px {%=height%}px'`)
+#### template
+
+Type: `String`, default: `'{%=target%}_{%=name%} = {%=x%}px {%=y%}px {%=width%}px {%=height%}px'`.
 
 Template for generating every string in a Stylus file.
 
-#### [algorithm] `String` (default: `'binary-tree'`)
+#### algorithm
 
-Layout algorithm (top-down, left-right, diagonal, alt-diagonal, ).
+Type: `String`, default: `'binary-tree'`
 
-#### [padding] `String` (default: `3`)
+Layout algorithm (top-down, left-right, diagonal, alt-diagonal, binary-tree).
+
+#### padding
+
+Type: `String`, default: `3`.
 
 Padding between images.
 
-#### [engine] `String` (default: `'auto'`)
+#### engine
+
+Type: `String`, default: `'auto'`
 
 Generation engine (auto, gm, canvas).
 
