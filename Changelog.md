@@ -1,3 +1,7 @@
+### 2013-11-06 v0.0.4
+
+* Update deps (works on Mavericks now).
+
 ### 2013-09-26 v0.0.3
 
 * `padding` option.
