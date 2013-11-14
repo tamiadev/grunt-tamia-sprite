@@ -1,6 +1,9 @@
 module.exports = function(grunt) {
 	'use strict';
 
+	require('load-grunt-tasks')(grunt);
+	grunt.loadTasks('tasks');
+
 	grunt.initConfig({
 		jshint: {
 			options: {
@@ -26,18 +29,19 @@ module.exports = function(grunt) {
 				destStyl: 'test/tmp/params/vars.styl'
 			}
 		},
-		nodeunit: {
-			tasks: ['test/*_test.js']
+		mochaTest: {
+			test: {
+				options: {
+					reporter: 'spec'
+				},
+				src: ['test/*.js']
+			}
 		},
 		clean: ['test/tmp']
 	});
 
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-nodeunit');
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadTasks('tasks');
-
-	grunt.registerTask('default', ['jshint', 'clean', 'sprite', 'nodeunit', 'clean']);
-	grunt.registerTask('build', ['clean']);
+	grunt.registerTask('test', ['mochaTest']);
+	grunt.registerTask('default', ['jshint', 'clean', 'sprite', 'test', 'clean']);
+	grunt.registerTask('build', ['default']);
 
 };
