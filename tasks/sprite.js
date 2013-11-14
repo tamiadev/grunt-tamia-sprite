@@ -83,7 +83,7 @@ module.exports = function(grunt) {
 			grunt.file.mkdir(path.dirname(options.dest));
 			fs.writeFileSync(options.dest, result.image, 'binary');
 
-			grunt.log.writeln('File "' + options.dest + '" created.');
+			grunt.log.writeln('Sprite ' + options.dest.cyan + ' created.');
 
 			if (!options.skipStyl) {
 				// Generate Stylus variables
@@ -102,7 +102,7 @@ module.exports = function(grunt) {
 				// Save variables
 				grunt.file.write(options.destStyl, lines.join('\n'));
 
-				grunt.log.writeln('File "' + options.destStyl + '" created.');
+				grunt.log.writeln('Stylesheet ' + options.destStyl.cyan + ' created.');
 			}
 
 			done();
