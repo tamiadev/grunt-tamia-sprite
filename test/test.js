@@ -15,7 +15,12 @@ describe('grunt-tamia-sprite', function() {
 			assert.ok(fs.existsSync('test/tmp/normal/sprite.styl'), 'Stylus file created.');
 		});
 		it('Stylus file content is OK.', function() {
-			assert.equal(grunt.file.read('test/tmp/normal/sprite.styl'), grunt.file.read('test/expected/normal.styl'));
+			var stylus = grunt.file.read('test/tmp/normal/sprite.styl');
+			var lines = stylus.split('\n');
+			var fingerprint = lines.pop();
+			var images = lines.join('\n');
+			assert.ok(/normal_fingerprint = "\d{13}"/.test(fingerprint), 'Fingerprint is OK.');
+			assert.equal(images, grunt.file.read('test/expected/normal.styl'), 'Images are OK.');
 		});
 	});
 
@@ -32,7 +37,12 @@ describe('grunt-tamia-sprite', function() {
 			assert.ok(fs.existsSync('test/tmp/retina/sprite.styl'), 'Stylus file created.');
 		});
 		it('Stylus file content is OK.', function() {
-			assert.equal(grunt.file.read('test/tmp/retina/sprite.styl'), grunt.file.read('test/expected/retina.styl'));
+			var stylus = grunt.file.read('test/tmp/retina/sprite.styl');
+			var lines = stylus.split('\n');
+			var fingerprint = lines.pop();
+			var images = lines.join('\n');
+			assert.ok(/retina_fingerprint = "\d{13}"/.test(fingerprint), 'Fingerprint is OK.');
+			assert.equal(images, grunt.file.read('test/expected/retina.styl'), 'Images are OK.');
 		});
 	});
 

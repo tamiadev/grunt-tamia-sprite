@@ -28,7 +28,8 @@ module.exports = function(grunt) {
 			algorithm: 'binary-tree',
 			padding: 3,
 			destStyl: this.data.dest.replace(/\.png$/, '.styl'),
-			template: '{%=target%}_{%=name%} = {%=x%}px {%=y%}px {%=width%}px {%=height%}px'
+			template: '{%=target%}_{%=name%} = {%=x%}px {%=y%}px {%=width%}px {%=height%}px',
+			fingerprintTemplate: '{%=target%}_fingerprint = "{%=fingerprint%}"',
 		});
 
 		var files = this.filesSrc;
@@ -98,6 +99,12 @@ module.exports = function(grunt) {
 						height: coords.height
 					}});
 				});
+
+				// Add fingerprint variable
+				lines.push(grunt.template.process(options.fingerprintTemplate, {delimiters: 'tamia-sprite', data: {
+					target: options.target,
+					fingerprint: +(new Date())
+				}}));
 
 				// Save variables
 				grunt.file.write(options.destStyl, lines.join('\n'));

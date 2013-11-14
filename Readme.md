@@ -45,6 +45,16 @@ Type: `String`, default: `'{%=target%}_{%=name%} = {%=x%}px {%=y%}px {%=width%}p
 
 Template for generating every string in a Stylus file.
 
+#### fingerprintTemplate
+
+Type: `String`, default: `'{%=target%}_fingerprint = "{%=fingerprint%}"'`.
+
+Template for variable with fingerpting (date of last sprite modification).
+
+```
+sprite_image = sprite_image + '?' + sprite_fingerprint;
+```
+
 #### algorithm
 
 Type: `String`, default: `'binary-tree'`
