@@ -1,3 +1,8 @@
+### 2013-11-15 v0.0.5
+
+* Fingerprints.
+* Some tweaks and refactoring.
+
 ### 2013-11-06 v0.0.4
 
 * Update deps (works on Mavericks now).
