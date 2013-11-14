@@ -12,7 +12,7 @@ module.exports = function(grunt) {
 	var fs = require('fs');
 	var path = require('path');
 	var spritesmith = require('spritesmith');
-	var _ = grunt.util._;
+	var _ = require('lodash');
 	var async = grunt.util.async;
 
 	grunt.template.addDelimiters('tamia-sprite', '{%', '%}');
