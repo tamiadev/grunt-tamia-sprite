@@ -41,7 +41,7 @@ module.exports = function(grunt) {
 
 		// Separate retina files
 		var filesRetina = _.filter(files, isRetina);
-		files = _.filter(files, isNotRetina);
+		files = _.reject(files, isRetina);
 
 		if (filesRetina.length && filesRetina.length !== files.length) {
 			grunt.warn('Number of normal and Retina images should be equal.');
@@ -127,10 +127,6 @@ module.exports = function(grunt) {
 
 		function isRetina(name) {
 			return name.indexOf('@2x') !== -1;
-		}
-
-		function isNotRetina(name) {
-			return !isRetina(name);
 		}
 	});
 };
