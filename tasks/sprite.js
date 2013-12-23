@@ -12,6 +12,7 @@ module.exports = function(grunt) {
 	var fs = require('fs');
 	var path = require('path');
 	var spritesmith = require('spritesmith');
+	var crypto = require('crypto');
 	var _ = require('lodash');
 	var async = grunt.util.async;
 
@@ -47,80 +48,89 @@ module.exports = function(grunt) {
 			allDone();
 		}
 
+		var md5 = crypto.createHash('md5');
+		var coordinates;
 		async.parallel([
 			function(done) {
-				generate(_.extend({}, params, {
+				generateImage(_.extend({}, params, {
 					src: files
-				}), done);
+				}), function(coords) {
+					coordinates = coords;
+					done();
+				});
 			},
 			function(done) {
-				generate(_.extend({}, params, {
+				generateImage(_.extend({}, params, {
 					src: filesRetina,
-					dest: params.dest.replace(/\.png$/, '@2x.png'),
-					skipStyl: true
+					dest: params.dest.replace(/\.png$/, '@2x.png')
 				}), done);
 			}
-		], allDone);
-	});
-
-	function generate(options, done) {
-		if (!options.src.length) return done();
-
-		spritesmith({
-			src: options.src,
-			engine: options.engine,
-			algorithm: options.algorithm,
-			padding: options.padding,
-			exportOpts: {
-				format: 'png'
-			}
-		}, function (err, result) {
-			if (err) {
-				grunt.fatal(err);
-				return done();
-			}
-
-			// Save sprite image
-			grunt.file.mkdir(path.dirname(options.dest));
-			fs.writeFileSync(options.dest, result.image, 'binary');
-
-			grunt.log.writeln('Sprite ' + options.dest.cyan + ' created.');
-
-			if (!options.skipStyl) {
-				// Generate Stylus variables
-				var lines = _.map(result.coordinates, function(coords, filename) {
-					var name = path.basename(filename, '.png');
-					return grunt.template.process(options.template, {delimiters: 'tamia-sprite', data: {
-						target: options.target,
-						name: name,
-						x: -coords.x,
-						y: -coords.y,
-						width: coords.width,
-						height: coords.height
-					}});
-				});
-
-				// Add fingerprint variable
-				lines.push(grunt.template.process(options.fingerprintTemplate, {delimiters: 'tamia-sprite', data: {
-					target: options.target,
-					fingerprint: +(new Date())
-				}}));
-
-				// Save variables
-				grunt.file.write(options.destStyl, lines.join('\n'));
-
-				grunt.log.writeln('Stylesheet ' + options.destStyl.cyan + ' created.');
-			}
-
-			done();
+		], function() {
+			generateStylesheet(params, coordinates);
+			allDone();
 		});
-	}
 
-	function isRetina(name) {
-		return name.indexOf('@2x') !== -1;
-	}
+		function generateImage(options, done) {
+			if (!options.src.length) return done();
 
-	function isNotRetina(name) {
-		return !isRetina(name);
-	}
+			spritesmith({
+				src: options.src,
+				engine: options.engine,
+				algorithm: options.algorithm,
+				padding: options.padding,
+				exportOpts: {
+					format: 'png'
+				}
+			}, function (err, result) {
+				if (err) {
+					grunt.fatal(err);
+					return done();
+				}
+
+				// Save sprite image
+				grunt.file.mkdir(path.dirname(options.dest));
+				fs.writeFileSync(options.dest, result.image, 'binary');
+				md5.update(result.image);
+
+
+				grunt.log.writeln('Sprite ' + options.dest.cyan + ' created.');
+
+				done(result.coordinates);
+			});
+		}
+
+		function generateStylesheet(options, coordinates) {
+			// Generate Stylus variables
+			var lines = _.map(coordinates, function(coords, filename) {
+				var name = path.basename(filename, '.png');
+				return grunt.template.process(options.template, {delimiters: 'tamia-sprite', data: {
+					target: options.target,
+					name: name,
+					x: -coords.x,
+					y: -coords.y,
+					width: coords.width,
+					height: coords.height
+				}});
+			});
+
+			// Add fingerprint variable
+			lines.push(grunt.template.process(options.fingerprintTemplate, {delimiters: 'tamia-sprite', data: {
+				target: options.target,
+				fingerprint: md5.digest('hex')
+			}}));
+
+			// Save variables
+			grunt.file.write(options.destStyl, lines.join('\n'));
+
+			grunt.log.writeln('Stylesheet ' + options.destStyl.cyan + ' created.');
+		}
+
+		function isRetina(name) {
+			return name.indexOf('@2x') !== -1;
+		}
+
+		function isNotRetina(name) {
+			return !isRetina(name);
+		}
+	});
 };

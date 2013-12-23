@@ -19,7 +19,7 @@ describe('grunt-tamia-sprite', function() {
 			var lines = stylus.split('\n');
 			var fingerprint = lines.pop();
 			var images = lines.join('\n');
-			assert.ok(/normal_fingerprint = "\d{13}"/.test(fingerprint), 'Fingerprint is OK.');
+			assert.ok(/normal_fingerprint = "[0-9a-f]{32}"/.test(fingerprint), 'Fingerprint is OK.');
 			assert.equal(images, grunt.file.read('test/expected/normal.styl'), 'Images are OK.');
 		});
 	});
@@ -41,7 +41,7 @@ describe('grunt-tamia-sprite', function() {
 			var lines = stylus.split('\n');
 			var fingerprint = lines.pop();
 			var images = lines.join('\n');
-			assert.ok(/retina_fingerprint = "\d{13}"/.test(fingerprint), 'Fingerprint is OK.');
+			assert.ok(/retina_fingerprint = "[0-9a-f]{32}"/.test(fingerprint), 'Fingerprint is OK.');
 			assert.equal(images, grunt.file.read('test/expected/retina.styl'), 'Images are OK.');
 		});
 	});
