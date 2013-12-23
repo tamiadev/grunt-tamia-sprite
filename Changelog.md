@@ -1,3 +1,7 @@
+### 2013-12-23 v0.0.6
+
+* Fingerprints based on sprites content.
+
 ### 2013-11-15 v0.0.5
 
 * Fingerprints.
