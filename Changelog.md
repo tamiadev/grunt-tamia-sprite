@@ -1,3 +1,7 @@
+### 2014-01-21 v0.0.7
+
+* Fix async.parallel callback (by [@apoleshchuk](https://github.com/apoleshchuk)).
+
 ### 2013-12-23 v0.0.6
 
 * Fingerprints based on sprites content.
