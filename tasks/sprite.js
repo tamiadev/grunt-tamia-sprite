@@ -54,7 +54,7 @@ module.exports = function(grunt) {
 			function(done) {
 				generateImage(_.extend({}, params, {
 					src: files
-				}), function(coords) {
+				}), function(err, coords) {
 					coordinates = coords;
 					done();
 				});
@@ -95,7 +95,7 @@ module.exports = function(grunt) {
 
 				grunt.log.writeln('Sprite ' + options.dest.cyan + ' created.');
 
-				done(result.coordinates);
+				done(null, result.coordinates);
 			});
 		}
 
