@@ -26,7 +26,8 @@ module.exports = function(grunt) {
 			params: {
 				src: 'test/src/*.png',
 				dest: 'test/tmp/params/sprite.png',
-				destStyl: 'test/tmp/params/vars.styl'
+				destStyl: 'test/tmp/params/vars.styl',
+				destJson: 'test/tmp/params/vars.json'
 			}
 		},
 		mochaTest: {
