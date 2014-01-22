@@ -37,7 +37,13 @@ Resulting sprite image location.
 
 Type: `String`, default: same as `dest` but with .styl extension.
 
-Resulting Stylus file location.
+Resulting Stylus file location. Use `false` for disable generate stylus.
+
+#### destJson
+
+Type: `String`, default: same as `dest` but with .json extension.
+
+Resulting Json file location. Use `false` for disable generate json.
 
 #### template
 
@@ -53,6 +59,16 @@ Template for variable with fingerpting (date of last sprite modification).
 
 ```
 sprite_image = sprite_image + '?' + sprite_fingerprint;
+```
+
+#### propertyTemplate
+
+Type: `String`, default: `'{%=target%}_{%=name%} = {%=value%}px'`.
+
+Template for spritesheet properties variables (width & height).
+
+```
+background-size: sprite_width sprite_height;
 ```
 
 #### algorithm
@@ -89,6 +105,20 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-tamia-sprite');
 	grunt.registerTask('default', ['sprite']);
 };
+```
+
+### Stylus Example (with nib & vars from .json file)
+``` css
+sprite = json('sprite.json', { hash: true })
+.sprite
+	image('sprite.png', sprite.properties.width * 1px, sprite.properties.height * 1px)
+
+	for name, data in sprite.coordinates
+		&_{name}
+			add-property('background-position', data.x * 1px data.y * 1px)
+			add-property('width', data.width * 1px)
+			add-property('height', data.height * 1px)
+
 ```
 
 ## Changelog
