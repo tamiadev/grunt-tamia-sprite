@@ -22,6 +22,13 @@ describe('grunt-tamia-sprite', function() {
 			assert.ok(/normal_fingerprint = "[0-9a-f]{32}"/.test(fingerprint), 'Fingerprint is OK.');
 			assert.equal(images, grunt.file.read('test/expected/normal.styl'), 'Images are OK.');
 		});
+		it('Json file content is OK.', function() {
+			var vars = JSON.parse(grunt.file.read('test/tmp/normal/sprite.json'));
+			var fingerprint = vars.fingerprint;
+			delete vars.fingerprint;
+			assert.ok(/[0-9a-f]{32}/.test(fingerprint), 'Fingerprint is OK.');
+			assert.equal(JSON.stringify(vars), grunt.file.read('test/expected/normal.json'), 'Json file are OK.');
+		});
 	});
 
 	describe('retina', function(test) {
@@ -44,6 +51,13 @@ describe('grunt-tamia-sprite', function() {
 			assert.ok(/retina_fingerprint = "[0-9a-f]{32}"/.test(fingerprint), 'Fingerprint is OK.');
 			assert.equal(images, grunt.file.read('test/expected/retina.styl'), 'Images are OK.');
 		});
+		it('Json file content is OK.', function() {
+			var vars = JSON.parse(grunt.file.read('test/tmp/retina/sprite.json'));
+			var fingerprint = vars.fingerprint;
+			delete vars.fingerprint;
+			assert.ok(/[0-9a-f]{32}/.test(fingerprint), 'Fingerprint is OK.');
+			assert.equal(JSON.stringify(vars), grunt.file.read('test/expected/retina.json'), 'Json file are OK.');
+		});
 	});
 
 	describe('params', function(test) {
@@ -53,6 +67,9 @@ describe('grunt-tamia-sprite', function() {
 		});
 		it('Should create Stylus file.', function() {
 			assert.ok(fs.existsSync('test/tmp/params/vars.styl'), 'Stylus file created.');
+		});
+		it('Should create Json file.', function() {
+			assert.ok(fs.existsSync('test/tmp/params/vars.json'), 'Json file created.');
 		});
 	});
 });
