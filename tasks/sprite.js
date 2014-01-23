@@ -137,7 +137,7 @@ module.exports = function(grunt) {
 			}
 
 			if (options.destJson) {
-				// Save json
+				// Save JSON
 				grunt.file.write(options.destJson, JSON.stringify({
 					properties: properties,
 					fingerprint: fingerprint,
@@ -156,7 +156,7 @@ module.exports = function(grunt) {
 					)
 				}));
 
-				grunt.log.writeln('Json ' + options.destJson.cyan + ' created.');
+				grunt.log.writeln('JSON file ' + options.destJson.cyan + ' created.');
 			}
 		}
 

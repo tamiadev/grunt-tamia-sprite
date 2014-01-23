@@ -37,13 +37,13 @@ Resulting sprite image location.
 
 Type: `String`, default: same as `dest` but with .styl extension.
 
-Resulting Stylus file location. Use `false` for disable generate stylus.
+Resulting Stylus file location. Use `false` to disable Stylus file generation.
 
 #### destJson
 
 Type: `String`, default: same as `dest` but with .json extension.
 
-Resulting Json file location. Use `false` for disable generate json.
+Resulting JSON file location. Use `false` to disable JSON file generation.
 
 #### template
 
@@ -107,18 +107,17 @@ module.exports = function(grunt) {
 };
 ```
 
-### Stylus Example (with nib & vars from .json file)
+### Stylus Example (with nib & vars from JSON file)
 ``` css
-sprite = json('sprite.json', { hash: true })
+sprite = json("sprite.json", { hash: true })
 .sprite
-	image('sprite.png', sprite.properties.width * 1px, sprite.properties.height * 1px)
+	image("sprite.png", sprite.properties.width * 1px, sprite.properties.height * 1px)
 
 	for name, data in sprite.coordinates
 		&_{name}
-			add-property('background-position', data.x * 1px data.y * 1px)
-			add-property('width', data.width * 1px)
-			add-property('height', data.height * 1px)
-
+			add-property("background-position", data.x * 1px data.y * 1px)
+			add-property("width", data.width * 1px)
+			add-property("height", data.height * 1px)
 ```
 
 ## Changelog
