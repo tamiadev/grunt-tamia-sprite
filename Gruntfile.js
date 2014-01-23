@@ -14,6 +14,11 @@ module.exports = function(grunt) {
 				'Gruntfile.js'
 			]
 		},
+		jscs: {
+			all: [
+				'tasks/*.js'
+			],
+		},
 		sprite: {
 			normal: {
 				src: 'test/src/*.png',
@@ -42,7 +47,7 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('test', ['mochaTest']);
-	grunt.registerTask('default', ['jshint', 'clean', 'sprite', 'test', 'clean']);
+	grunt.registerTask('default', ['jshint', 'jscs', 'clean', 'sprite', 'test', 'clean']);
 	grunt.registerTask('build', ['default']);
 
 };

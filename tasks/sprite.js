@@ -19,8 +19,8 @@ module.exports = function(grunt) {
 	grunt.template.addDelimiters('tamia-sprite', '{%', '%}');
 
 	grunt.registerMultiTask('sprite', 'Sprite generator for Tâmia', function() {
-		this.requiresConfig([ this.name, this.target, 'src' ].join('.'));
-		this.requiresConfig([ this.name, this.target, 'dest' ].join('.'));
+		this.requiresConfig([this.name, this.target, 'src'].join('.'));
+		this.requiresConfig([this.name, this.target, 'dest'].join('.'));
 
 		var allDone = this.async();
 		var params = _.defaults(this.data, {
@@ -80,7 +80,7 @@ module.exports = function(grunt) {
 				exportOpts: {
 					format: 'png'
 				}
-			}, function (err, result) {
+			}, function(err, result) {
 				if (err) {
 					grunt.fatal(err);
 					return done();
