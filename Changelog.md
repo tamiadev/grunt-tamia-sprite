@@ -1,3 +1,7 @@
+### 2014-01-24 v0.1.0
+
+* Save spritesheets to JSON file (by [@apoleshchuk](https://github.com/apoleshchuk)).
+
 ### 2014-01-21 v0.0.7
 
 * Fix async.parallel callback (by [@apoleshchuk](https://github.com/apoleshchuk)).
