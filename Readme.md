@@ -108,6 +108,7 @@ module.exports = function(grunt) {
 ```
 
 ### Stylus Example (with nib & vars from JSON file)
+
 ``` css
 sprite = json("sprite.json", { hash: true })
 .sprite

@@ -21,6 +21,9 @@
     }
   ],
   "main": "tasks/tamia-sprite.js",
+  "scripts": {
+    "test": "grunt --stack"
+  },
   "engines": {
     "node": ">= 0.8.0"
   },
@@ -40,6 +43,8 @@
     "grunt": "~0.4.0"
   },
   "keywords": [
-    "tamia"
+    "tamia",
+    "sprite",
+    "image"
   ]
 }
