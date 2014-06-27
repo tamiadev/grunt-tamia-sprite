@@ -20,19 +20,32 @@ module.exports = function(grunt) {
 			],
 		},
 		sprite: {
+			options: {
+				destStyl: 'test/tmp/taskOptions/custom.styl'
+			},
 			normal: {
 				src: 'test/src/*.png',
-				dest: 'test/tmp/normal/sprite.png'
+				dest: 'test/tmp/normal/sprite.png',
+				options: {
+					destStyl: 'test/tmp/normal/sprite.styl'
+				}
 			},
 			retina: {
 				src: 'test/src_retina/*.png',
-				dest: 'test/tmp/retina/sprite.png'
+				dest: 'test/tmp/retina/sprite.png',
+				options: {
+					destStyl: 'test/tmp/retina/sprite.styl'
+				}
 			},
 			params: {
 				src: 'test/src/*.png',
 				dest: 'test/tmp/params/sprite.png',
 				destStyl: 'test/tmp/params/vars.styl',
 				destJson: 'test/tmp/params/vars.json'
+			},
+			taskOptions: {
+				src: 'test/src/*.png',
+				dest: 'test/tmp/taskOptions/sprite.png'
 			}
 		},
 		mochaTest: {

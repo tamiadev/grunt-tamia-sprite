@@ -15,6 +15,7 @@ module.exports = function(grunt) {
 	var crypto = require('crypto');
 	var _ = require('lodash');
 	var async = grunt.util.async;
+	var spritesmithOptions = ['src', 'engine', 'algorithm', 'padding', 'engineOpts', 'algorithmOpts', 'exportOpts'];
 
 	grunt.template.addDelimiters('tamia-sprite', '{%', '%}');
 
@@ -23,17 +24,20 @@ module.exports = function(grunt) {
 		this.requiresConfig([this.name, this.target, 'dest'].join('.'));
 
 		var allDone = this.async();
-		var params = _.defaults(this.data, {
+		var params = _.extend({}, this.options({
 			target: this.target,
 			engine: 'auto',
 			algorithm: 'binary-tree',
+			algorithmOpts: {
+				'sort': false
+			},
 			padding: 3,
 			destStyl: this.data.dest.replace(/\.png$/, '.styl'),
 			destJson: this.data.dest.replace(/\.png$/, '.json'),
 			template: '{%=target%}_{%=name%} = {%=x%}px {%=y%}px {%=width%}px {%=height%}px',
 			fingerprintTemplate: '{%=target%}_fingerprint = "{%=fingerprint%}"',
 			propertyTemplate: '{%=target%}_{%=name%} = {%=value%}px'
-		});
+		}), _.omit(this.data, 'options')); // this.data for backward compatibility
 
 		var files = this.filesSrc;
 		if (!files.length) {
@@ -72,15 +76,8 @@ module.exports = function(grunt) {
 		function generateImage(options, done) {
 			if (!options.src.length) return done();
 
-			spritesmith({
-				src: options.src,
-				engine: options.engine,
-				algorithm: options.algorithm,
-				padding: options.padding,
-				exportOpts: {
-					format: 'png'
-				}
-			}, function(err, result) {
+
+			spritesmith(_.pick(options, spritesmithOptions), function(err, result) {
 				if (err) {
 					grunt.fatal(err);
 					return done();
