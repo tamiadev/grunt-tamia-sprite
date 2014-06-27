@@ -1,3 +1,7 @@
+### 2014-06-27 v0.2.0
+
+* Task options via `options` object for the latest spritesmith (by [@apoleshchuk](https://github.com/apoleshchuk)).
+
 ### 2014-01-24 v0.1.0
 
 * Save spritesheets to JSON file (by [@apoleshchuk](https://github.com/apoleshchuk)).
