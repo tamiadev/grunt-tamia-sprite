@@ -36,6 +36,22 @@ Type: `String`.
 
 Resulting sprite image location.
 
+### Options
+
+Options should be inside `options` object:
+
+```
+sprite: {
+	all: {
+		src: 'images/sprites/*.png',
+		dest: 'build/sprite.png'
+		options: {
+			destStyl: 'styles/sprite.styl'
+		}
+	}
+}
+```
+
 #### destStyl
 
 Type: `String`, default: same as `dest` but with .styl extension.
@@ -112,7 +128,7 @@ module.exports = function(grunt) {
 
 ### Stylus Example (with nib & vars from JSON file)
 
-``` css
+``` scss
 sprite = json("sprite.json", { hash: true })
 .sprite
 	image("sprite.png", sprite.properties.width * 1px, sprite.properties.height * 1px)
