@@ -72,4 +72,17 @@ describe('grunt-tamia-sprite', function() {
 			assert.ok(fs.existsSync('test/tmp/params/vars.json'), 'Json file created.');
 		});
 	});
+
+	describe('taskOptions', function(test) {
+		it('Should create normal sprite file.', function() {
+			assert.ok(fs.existsSync('test/tmp/taskOptions/sprite.png'), 'Sprite file created.');
+			assert.ok(fs.statSync('test/tmp/taskOptions/sprite.png').size, 'Sprite file not empty.');
+		});
+		it('Should create Stylus file.', function() {
+			assert.ok(fs.existsSync('test/tmp/taskOptions/custom.styl'), 'Stylus file created.');
+		});
+		it('Should create Json file.', function() {
+			assert.ok(fs.existsSync('test/tmp/taskOptions/sprite.json'), 'Json file created.');
+		});
+	});
 });
