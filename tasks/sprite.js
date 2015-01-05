@@ -26,7 +26,7 @@ module.exports = function(grunt) {
 		var allDone = this.async();
 		var params = _.extend({}, this.options({
 			target: this.target,
-			engine: 'auto',
+			engine: 'pixelsmith',
 			algorithm: 'binary-tree',
 			algorithmOpts: {
 				'sort': false
