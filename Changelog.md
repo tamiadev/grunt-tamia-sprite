@@ -1,3 +1,7 @@
+### 2015-01-05 v0.3.0
+
+* Update spritesmith to 1.0.
+
 ### 2014-06-27 v0.2.0
 
 * Task options via `options` object for the latest spritesmith (by [@apoleshchuk](https://github.com/apoleshchuk)).
