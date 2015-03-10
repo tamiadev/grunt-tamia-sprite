@@ -1,9 +1,9 @@
-# Sprite generator for [Tâmia](https://github.com/sapegin/tamia)
+# Sprite generator for [Tâmia](https://github.com/tamiadev/tamia)
 
-[![Build Status](https://travis-ci.org/sapegin/grunt-tamia-sprite.png)](https://travis-ci.org/sapegin/grunt-tamia-sprite)
+[![Build Status](https://travis-ci.org/tamiadev/grunt-tamia-sprite.png)](https://travis-ci.org/tamiadev/grunt-tamia-sprite)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
-Generates [spritesheet](http://en.wikipedia.org/wiki/Sprite_%28computer_graphics%29#Sprites_by_CSS) from PNG files and a list of Stylus variables with coordinates to use in [Tâmia](https://github.com/sapegin/tamia). Uses [spritesmith](https://github.com/Ensighten/spritesmith). Inspired by [grunt-spritesmith](https://github.com/Ensighten/grunt-spritesmith).
+Generates [spritesheet](http://en.wikipedia.org/wiki/Sprite_%28computer_graphics%29#Sprites_by_CSS) from PNG files and a list of Stylus variables with coordinates to use in [Tâmia](https://github.com/tamiadev/tamia). Uses [spritesmith](https://github.com/Ensighten/spritesmith). Inspired by [grunt-spritesmith](https://github.com/Ensighten/grunt-spritesmith).
 
 ## Installation
 
