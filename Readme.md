@@ -8,9 +8,9 @@ Generates [spritesheet](http://en.wikipedia.org/wiki/Sprite_%28computer_graphics
 
 This plugin requires Grunt 0.4.
 
-Install [GraphicsMagick](http://www.graphicsmagick.org/) (`brew install graphicsmagick` if you're on a Mac) *or* [Cairo](http://cairographics.org/). Then install grunt-tamia-sprite:
-
-`npm install --save-dev grunt-tamia-sprite`
+```shell
+npm install --save-dev grunt-tamia-sprite
+```
 
 Add to your `Gruntfile.js`:
 
@@ -141,10 +141,10 @@ sprite = json("sprite.json", { hash: true })
 
 ## Changelog
 
-The changelog can be found in the Changelog.md file.
+The changelog can be found in the [Changelog.md](Changelog.md) file.
 
 ---
 
 ## License
 
-The MIT License, see the included `License.md` file.
+The MIT License, see the included [License.md](License.md) file.
