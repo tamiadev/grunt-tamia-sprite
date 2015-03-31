@@ -1,3 +1,7 @@
+### 2015-03-31 v0.3.1
+
+* Update spritesmith to 1.3 (by [@apoleshchuk](https://github.com/apoleshchuk))..
+
 ### 2015-01-05 v0.3.0
 
 * Update spritesmith to 1.0.
